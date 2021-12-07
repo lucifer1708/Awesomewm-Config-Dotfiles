@@ -12,4 +12,4 @@
 
 
 ## Previews:
-[![Preview](http://https://ibb.co/GxrcCLC "Preview")](http://http://https://ibb.co/GxrcCLC "Preview")
+[![](https://i.ibb.co/M2JMP4P/Screenshot-from-2021-12-07-14-25-50.png)](http://https://i.ibb.co/M2JMP4P/Screenshot-from-2021-12-07-14-25-50.png)
