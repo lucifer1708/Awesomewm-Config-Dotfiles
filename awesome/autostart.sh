@@ -24,6 +24,7 @@ run volumeicon
 # run conky -c $HOME/.config/awesome/system-overview
 #you can set wallpapers in themes as well
 feh --bg-fill ~/.wall.jpg &
+
 #run applications from startup
 #run firefox
 #run atom
