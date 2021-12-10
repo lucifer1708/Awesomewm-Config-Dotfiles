@@ -1,8 +1,6 @@
 --[[
-
      Multicolor Awesome WM theme 2.0
      github.com/lcpz
-
 --]]
 
 local gears = require("gears")
@@ -22,11 +20,11 @@ theme.font                                      = "Noto Sans Regular 11"
 theme.taglist_font                              = "Noto Sans Regular 13"
 theme.menu_bg_normal                            = "#000000"
 theme.menu_bg_focus                             = "#000000"
-theme.bg_normal                                 = "#000000"
-theme.bg_focus                                  = "#000000"
+theme.bg_normal                                 = "#242728"
+theme.bg_focus                                  = "#242728"
 theme.bg_urgent                                 = "#000000"
 theme.fg_normal                                 = "#aaaaaa"
-theme.fg_focus                                  = "#ff8c00"
+theme.fg_focus                                  = "#ff0000"
 theme.fg_urgent                                 = "#af1d18"
 theme.fg_minimize                               = "#ffffff"
 theme.border_width                              = dpi(2)
@@ -38,7 +36,7 @@ theme.menu_height                               = dpi(25)
 theme.menu_width                                = dpi(260)
 theme.menu_submenu_icon                         = theme.confdir .. "/icons/submenu.png"
 theme.menu_fg_normal                            = "#aaaaaa"
-theme.menu_fg_focus                             = "#ff8c00"
+theme.menu_fg_focus                             = "#ff0000"
 theme.menu_bg_normal                            = "#050505dd"
 theme.menu_bg_focus                             = "#050505dd"
 theme.widget_temp                               = theme.confdir .. "/icons/temp.png"
@@ -101,7 +99,7 @@ local markup = lain.util.markup
 -- Textclock
 os.setlocale(os.getenv("LANG")) -- to localize the clock
 local clockicon = wibox.widget.imagebox(theme.widget_clock)
-local mytextclock = wibox.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#535f7a", ">") .. markup("#de5e1e", " %H:%M "))
+local mytextclock = wibox.widget.textclock(markup("#ffffff", "%A %d %B ") .. markup("#535f7a", ">") .. markup("#de5e1e", " %H:%M "))
 mytextclock.font = theme.font
 
 -- Calendar
@@ -190,7 +188,6 @@ local bat = lain.widget.bat({
         widget:set_markup(markup.fontfg(theme.font, theme.fg_normal, perc .. " "))
     end
 })
-
 -- ALSA volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({
@@ -313,8 +310,8 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             --mailicon,
             --mail.widget,
-            --mpdicon,
-            --theme.mpd.widget,
+            -- mpdicon,
+            -- theme.mpd.widget,
             netdownicon,
             netdowninfo,
             netupicon,
@@ -325,12 +322,12 @@ function theme.at_screen_connect(s)
             memory.widget,
             cpuicon,
             cpu.widget,
-            --weathericon,
-            --theme.weather.widget,
-            --tempicon,
-            --temp.widget,
-            --baticon,
-            --bat.widget,
+            -- weathericon,
+            -- theme.weather.widget,
+            tempicon,
+            temp.widget,
+            baticon,
+            bat.widget,
             clockicon,
             mytextclock,
             wibox.widget.systray(),

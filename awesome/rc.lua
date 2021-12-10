@@ -1,14 +1,9 @@
 --[[
-
      Awesome WM configuration template
      https://github.com/awesomeWM
-
      Freedesktop : https://github.com/lcpz/awesome-freedesktop
-
      Copycats themes : https://github.com/lcpz/awesome-copycats
-
      lain : https://github.com/lcpz/lain
-
 --]]
 
 -- {{{ Required libraries
@@ -763,7 +758,6 @@ globalkeys = my_table.join(
 
     -- Default
     --[[ Menubar
-
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "super"})
     --]]
