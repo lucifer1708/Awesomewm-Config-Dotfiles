@@ -22,9 +22,7 @@ run numlockx on
 run volumeicon
 #run nitrogen --restore
 # run conky -c $HOME/.config/awesome/system-overview
-#you can set wallpapers in themes as well
-feh --bg-fill ~/.wall.jpg &
-
+./home/lucifer/.fehbg &
 #run applications from startup
 #run firefox
 #run atom
