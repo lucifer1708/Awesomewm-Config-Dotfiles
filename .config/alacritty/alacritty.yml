@@ -167,7 +167,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -568,30 +568,35 @@ schemes:
 colors:
   # Default colors
   primary:
-    background: '#202734'
-    foreground: '#CBCCC6'
+    background: '#292C3E'
+    foreground: '#EBEBEB'
+
+  # Cursor colors
+  cursor:
+    text: '#FF261E'
+    cursor: '#FF261E'
 
   # Normal colors
   normal:
-    black: '#191E2A'
-    red: '#FF3333'
-    green: '#BAE67E'
-    yellow: '#FFA759'
-    blue: '#73D0FF'
-    magenta: '#FFD580'
-    cyan: '#95E6CB'
-    white: '#C7C7C7'
+    black: '#0d0d0d'
+    red: '#FF301B'
+    green: '#A0E521'
+    yellow: '#FFC620'
+    blue: '#1BA6FA'
+    magenta: '#8763B8'
+    cyan: '#21DEEF'
+    white: '#EBEBEB'
 
   # Bright colors
   bright:
-    black: '#686868'
-    red: '#F27983'
-    green: '#A6CC70'
-    yellow: '#FFCC66'
-    blue: '#5CCFE6'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+    black: '#6D7070'
+    red: '#FF4352'
+    green: '#B8E466'
+    yellow: '#FFD750'
+    blue: '#1BA6FA'
+    magenta: '#A578EA'
+    cyan: '#73FBF1'
+    white: '#FEFEF8'
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -625,7 +630,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.85
+background_opacity: 0.56
 # background_opacity: 0.80
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -634,13 +639,7 @@ background_opacity: 0.85
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 #cursor:
-# Cursor style
-#
-# Values for `style`:
-#   - ▇ Block
-#   - _ Underline
-#   - | Beam
-#style: Block
+#style: Beam
 # If this is `true`, the cursor will be rendered as a hollow box when the
 # window is not focused.
 #unfocused_hollow: true
@@ -884,4 +883,4 @@ key_bindings:
       action: ScrollToBottom,
       mode: ~Alt
     }
-theme: Ayu-Mirage
+theme: Argonaut
