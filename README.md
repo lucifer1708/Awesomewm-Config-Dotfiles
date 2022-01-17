@@ -25,4 +25,5 @@ alacritty
 etc,`
 
 ## Previews:
-[![](https://i.ibb.co/M2JMP4P/Screenshot-from-2021-12-07-14-25-50.png)](http://https://i.ibb.co/M2JMP4P/Screenshot-from-2021-12-07-14-25-50.png)
+[![](https://imgur.com/eTz9duJ.png)](https://imgur.com/eTz9duJ.png)
+[![](https://imgur.com/jYBq2PW.png)](https://imgur.com/jYBq2PW.png)
