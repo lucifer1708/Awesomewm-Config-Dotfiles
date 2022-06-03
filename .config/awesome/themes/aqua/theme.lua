@@ -160,8 +160,6 @@ local bat = lain.widget.bat({
 })
 
 -- ------------------------ EXTRA WIDGETS
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local memory = lain.widget.mem({
 	settings = function()
