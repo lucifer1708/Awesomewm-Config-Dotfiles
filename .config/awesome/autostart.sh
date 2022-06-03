@@ -22,8 +22,8 @@ run numlockx on
 run volumeicon
 #run nitrogen --restore
 # run conky -c $HOME/.config/awesome/system-overview
-./home/lucifer/.fehbg &
 #run applications from startup
+feh --bg-scale Pictures/ign_dudeOnBuilding3.png
 #run firefox
 #run atom
 #run dropbox
