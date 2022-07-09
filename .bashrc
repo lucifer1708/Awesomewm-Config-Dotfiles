@@ -1,25 +1,64 @@
-#
-# ~/.bashrc
-#
+# # # # # # #
+# ~/.bashrc #
+# # # # # # #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-#Starship Prompt
+
+# # # # # # # # # # # # # # # # # # # #
+#     __               _              #
+#    / /   __  _______(_) ______ ____ #
+#   / /   / / / / ___/ / /_/ _ |/___/ #
+#  / /___/ /_/ / /__/ / __/  __/ /    #
+# /_____/|__,_/|___/_/_/  |___/_/     #
+#                                     #
+# # # # # # # # # # # # # # # # # # # #
+#       Author: Sumit Dhiman          #
+#      Email: 20bce091@nith.ac.in     #
+# # # # # # # # # # # # # # # # # # # #
+
+
+# STARSHIP PROMPT =>
 eval "$(starship init bash)"
-#___________________________________
+
+
+
+[[ $- != *i* ]] && return
+EDITOR='nvim' # Variable for $EDITOR
 alias ls='ls --color=auto'
 alias installer='sudo calamares'
 PS1='[\u@\h \W]\$'
-alias global-menu='sudo chmod +x ~/.config/awesome/configuration/rofi/global/rofi-spotlight.sh'
+alias autostart='sudo chmod +x .config/awesome/autostart.sh'
+alias vim='nvim'
+alias vi='nvim'
+alias cptoken='cat ~/.token.txt | xclip -selection clipboard'
+alias clr='clear'
+alias bye='exit'
+alias fm='ranger'
+alias vim-config='cd ~/.config/nvim/'
 
-#list
+#GIT ALIASES
+alias g='git'
+alias ga='git add'
+alias gcommit='git commit -m'
+alias gb='git branch'
+alias gc='git checkout'
+alias gpush='git push origin'
+alias ggpush='git push -u origin'
+# Python Stuff Going Here
+alias pyrun="python manage.py runserver" # For Django
+alias migrate="python manage.py migrate" # For Django
+alias makemigrations="python manage.py makemigrations" # For Django
+alias createsuperuser="python manage.py createsuperuser" # For Django
+alias activate-env='source venv/bin/activate'
+alias create-env='virtualenv venv'
+
+# list
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias ll='ls -la'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
-#fix obvious typo's
+# fix obvious typo's
 alias cd..='cd ..'
 alias pdw="pwd"
 alias udpate='sudo pacman -Syyu'
@@ -29,32 +68,34 @@ alias updqte='sudo pacman -Syyu'
 alias upqll="paru -Syu --noconfirm"
 alias upal="paru -Syu --noconfirm"
 
-## Colorize the grep command output for ease of use (good for log files)##
+# Colorize the grep command output for ease of use (good for log files) 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#readable output
+# readable output for looking on the disk usage of storage 
 alias df='df -h'
 
-#pacman unlock
+# pacman unlock
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
 
-#free
+# take a look at free memory
 alias free="free -mt"
 
-#continue download
+# continue download
 alias wget="wget -c"
 
-#userlist
+# Will list all the users in "pswd"
 alias userlist="cut -d: -f1 /etc/passwd"
 
-#merge new settings
+# merge new settings
 alias merge="xrdb -merge ~/.Xresources"
 
-# Aliases for software managment
+# ALIAS FOR SOFTWARE MANAGEMENT
 # pacman or pm
+alias install='sudo pacman -S'
+alias remove='sudo pacman -Rns'
 alias pacman='sudo pacman --color auto'
 alias update='sudo pacman -Syyu'
 
@@ -62,31 +103,31 @@ alias update='sudo pacman -Syyu'
 alias pksyua="paru -Syu --noconfirm"
 alias upall="paru -Syu --noconfirm"
 
-#ps
+# ps commands for looking at system services running
 alias psa="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 
-#grub update
+# grub update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-#add new fonts
+# add new fonts 
 alias update-fc='sudo fc-cache -fv'
 
-#copy/paste all content of /etc/skel over to home folder - backup of config created - beware
+# copy/paste all content of /etc/skel over to home folder - backup of config created - beware
 alias skel='[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~'
-#backup contents of /etc/skel to hidden backup folder in home/user
+# backup contents of /etc/skel to hidden backup folder in home/user
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
-#copy bashrc-latest over on bashrc - cb= copy bashrc
-#alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
-#copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
+# copy /etc/skel/.bashrc  over on ~/.bashrc - cb= copy bashrc
+alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
+# copy /etc/skel/.zshrc over on ~/.zshrc - cz= copy zshrc
 alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
 
-#switch between bash and zsh
+# switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
-#switch between lightdm and sddm
+# switch between lightdm and sddm
 alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
 alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
 
@@ -96,56 +137,52 @@ alias kc='killall conky'
 # quickly kill polybar
 alias kp='killall polybar'
 
-#hardware info --short
+# hardware info --short
 alias hw="hwinfo --short"
 
-#skip integrity check
+# skip integrity check
 alias paruskip='paru -S --mflags --skipinteg'
 alias yayskip='yay -S --mflags --skipinteg'
 alias trizenskip='trizen -S --skipinteg'
 
-#check vulnerabilities microcode
+# check vulnerabilities in microcode
 alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
-#get fastest mirrors in your neighborhood
+# get fastest mirrors in your neighborhood
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
-#our experimental - best option for the moment
+# our experimental - best option for the moment
 alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
 
 
-#enabling vmware services
-alias start-vmware="sudo systemctl enable --now vmtoolsd.service"
-
-
-#youtube download
+# youtube download
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
 alias yta-best="yt-dlp --extract-audio --audio-format best "
 alias yta-flac="yt-dlp --extract-audio --audio-format flac "
 alias yta-mp3="yt-dlp --extract-audio --audio-format mp3 "
 alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
 
-#Recent Installed Packages
+# Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
 alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
-#Cleanup orphaned packages
+# Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
-#search content with ripgrep
+# search content with ripgrep
 alias rg="rg --sort path"
 
-#get the error messages from journalctl
+# get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-#nano for important configuration files
-#know what you do in these files
+# nano for important configuration files
+# know what you do in these files
 alias nlightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
 alias npacman="sudo $EDITOR /etc/pacman.conf"
 alias ngrub="sudo $EDITOR /etc/default/grub"
@@ -161,36 +198,37 @@ alias ngnupgconf="sudo nano /etc/pacman.d/gnupg/gpg.conf"
 alias nb="$EDITOR ~/.bashrc"
 alias nz="$EDITOR ~/.zshrc"
 
-#gpg
-#verify signature for isos
+# gpg
+# verify signature for isos
 alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 alias fix-gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
-#receive the key of a developer
+# receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 alias fix-gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 alias fix-keyserver="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/gpg.conf ~/.gnupg/ ; echo 'done'"
 
-#fixes
+# fixes
 alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
 
-#maintenance
+# maintenance
 alias big="expac -H M '%m\t%n' | sort -h | nl"
-#use unhblock to stop using hblock
+# use unhblock to stop using hblock
 alias unhblock="hblock -S none -D none"
 
-#systeminfo
+# systeminfo
 alias probe="sudo -E hw-probe -all -upload"
 alias sysfailed="systemctl list-units --failed"
 
-#shutdown or reboot
+# shutdown or reboot
 alias ssn="sudo shutdown now"
+alias sn='shutdown now'
 alias sr="sudo reboot"
 
-#give the list of all installed desktops - xsessions desktops
+# give the list of all installed desktops - xsessions desktops
 alias xd="ls /usr/share/xsessions"
 
-# # ex = EXtractor for all kinds of archives
-# # usage: ex <file>
+# ex = EXtractor for all kinds of archives
+# usage: ex <file>
 ex ()
 {
   if [ -f $1 ] ; then
@@ -216,44 +254,10 @@ ex ()
   fi
 }
 
-#Leftwm aliases
-alias lti="leftwm-theme install"
-alias ltu="leftwm-theme uninstall"
-alias lta="leftwm-theme apply"
-alias ltupd="leftwm-theme update"
-alias ltupg="leftwm-theme upgrade"
-
-#remove
+# remove
 alias rmgitcache="rm -r ~/.cache/git"
 
-#moving your personal files and folders from /personal to ~
-alias personal='cp -Rf /personal/* ~'
 
-#EDIT
-alias install='sudo pacman -S'
-alias remove='sudo pacman -Rns'
-alias clr='clear'
-#create a file called .zshrc-personal and put all your personal aliases
-#in there. They will not be overwritten by skel.
+# USELESS ALIASES
+alias fetch='neofetch'
 
-
-# reporting tools - install when not installed
-# neofetch
-#screenfetch
-#alsi
-#paleofetch
-#fetch
-#hfetch
-#sfetch
-#ufetch
-#pfetch
-#sysinfo
-#sysinfo-retro
-#cpufetch
-#colorscript random
-alias bye='exit'
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION

@@ -32,11 +32,13 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 6
-    y: 6
+    x: 0
+    y: 0
+
+  opacity: 0.85
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -75,7 +77,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 5000
+  history: 1000
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
   #multiplier: 3
@@ -100,17 +102,16 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Source Code Pro
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
+    family: Source Code Pro
     # family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: regular
 
   # Bold font face
   bold:
@@ -136,7 +137,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Source Code Pro
+    family: Victor Mono semibold
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -167,7 +168,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -206,7 +207,7 @@ schemes:
   DoomOne:
     &DoomOne
     primary:
-      background: '#282c34'
+      background: '#e3463b'
       foreground: '#bbc2cf'
     cursor:
       text: CellBackground
@@ -237,7 +238,7 @@ schemes:
   Dracula:
     &Dracula
     primary:
-      background: '#282a36'
+      background: '#e3e3e3'
       foreground: '#f8f8f2'
     cursor:
       text: CellBackground
@@ -566,37 +567,32 @@ schemes:
 # *SolarizedDark
 # *TomorrowNight
 colors:
-  # Default colors
+  name: VisiBone
+  author: ""
   primary:
-    background: '#292C3E'
-    foreground: '#EBEBEB'
-
-  # Cursor colors
+    background: "#000000"
+    foreground: "#ffffff"
   cursor:
-    text: '#FF261E'
-    cursor: '#FF261E'
-
-  # Normal colors
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#0d0d0d'
-    red: '#FF301B'
-    green: '#A0E521'
-    yellow: '#FFC620'
-    blue: '#1BA6FA'
-    magenta: '#8763B8'
-    cyan: '#21DEEF'
-    white: '#EBEBEB'
-
-  # Bright colors
+    black: "#666666"
+    red: "#cc6666"
+    green: "#66cc99"
+    yellow: "#cc9966"
+    blue: "#6699cc"
+    magenta: "#cc6699"
+    cyan: "#66cccc"
+    white: "#cccccc"
   bright:
-    black: '#6D7070'
-    red: '#FF4352'
-    green: '#B8E466'
-    yellow: '#FFD750'
-    blue: '#1BA6FA'
-    magenta: '#A578EA'
-    cyan: '#73FBF1'
-    white: '#FEFEF8'
+    black: "#999999"
+    red: "#ff9999"
+    green: "#99ffcc"
+    yellow: "#ffcc99"
+    blue: "#99ccff"
+    magenta: "#ff99cc"
+    cyan: "#99ffff"
+    white: "#ffffff"
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -622,24 +618,27 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-#visual_bell:
-#  animation: EaseOutExpo
-#  duration: 0
-#  color: '#ffffff'
-# Background opacity
+# visual_bell:
+#   animation: Ease
+#   duration: 0.5
+#   color: '#ffffff'
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.56
-# background_opacity: 0.80
+# window:
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 # When set to `true`, selected text will be copied to the primary clipboard.
 #save_to_clipboard: false
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
-#cursor:
-#style: Beam
+# cursor:
+#   style: underline
+cursor:
+  style:
+    shape: Block
+  vi_mode_style:
+    shape: Block
 # If this is `true`, the cursor will be rendered as a hollow box when the
 # window is not focused.
 #unfocused_hollow: true
@@ -654,11 +653,10 @@ background_opacity: 0.56
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell: null
-program: /bin/zsh
-args:
-  - --login
-
+# shell: null
+# program: /bin/zsh
+# args:
+#   - --login
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
@@ -883,4 +881,5 @@ key_bindings:
       action: ScrollToBottom,
       mode: ~Alt
     }
-theme: Argonaut
+
+theme: Visibone

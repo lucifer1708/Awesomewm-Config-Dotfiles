@@ -1,18 +1,26 @@
-local core_modules = {
-   "core.options",
-   "core.autocmds",
-   "core.mappings",
-}
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.colorscheme")
+require("user.cmp")
+require("user.lsp")
+require("user.telescope")
+require("user.treesitter")
+require("user.autopairs")
+require("user.comment")
+require("user.gitsigns")
+require("user.nvim-tree")
+require("user.bufferline")
+require("user.lualine")
+require("user.toggleterm")
+require("user.project")
+require("user.impatient")
+require("user.indentline")
+require("user.alpha")
+require("user.whichkey")
+require("user.autocommands")
+require("user.nvim-comment")
+-- require "user.colorizer"
+require("user.sniprun")
+require("user.emmet")
 
-for _, module in ipairs(core_modules) do
-   local ok, err = pcall(require, module)
-   if not ok then
-      error("Error loading " .. module .. "\n\n" .. err)
-   end
-end
-
--- non plugin mappings
-require("core.mappings").misc()
-
--- try to call custom init
-pcall(require, "custom")

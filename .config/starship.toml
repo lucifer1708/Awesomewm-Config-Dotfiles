@@ -1,147 +1,48 @@
-## FIRST LINE/ROW: Info & Status
-# First param ─┌
-[username]
-format = " [$user]($style)@"
-show_always = true
-style_root = "bold blue"
-style_user = "bold blue"
-
-# Second param
-[hostname]
-disabled = false
-format = "[$hostname]($style) in "
-ssh_only = false
-style = "bold dimmed green"
-trim_at = "-"
-
-# Third param
-[directory]
-style = "bold italic red"
-truncate_to_repo = true
-truncation_length = 0
-truncation_symbol = "repo: "
-
-# Fourth param
-[sudo]
-disabled = false
-
-# Before all the version info (python, nodejs, php, etc.)
-[git_status]
-ahead = "⇡${count}"
-behind = "⇣${count}"
-deleted = "x"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-style = "white"
-
-# Last param in the first line/row
-[cmd_duration]
-disabled = false
-format = "took [$duration]($style)"
-min_time = 1
-
-
-## SECOND LINE/ROW: Prompt
-# Somethere at the beginning
 [battery]
-charging_symbol = ""
-disabled = true
-discharging_symbol = ""
-full_symbol = ""
+full_symbol = " 🔋"
+charging_symbol = " 🔌"
+discharging_symbol = " ⚡"
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
-disabled = false
+[[battery.display]]
+threshold = 100
 style = "bold red"
-threshold = 15
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = true
-style = "bold yellow"
-threshold = 50
-
-[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = true
-style = "bold green"
-threshold = 80
-
-# Prompt: optional param 1
-[time]
-disabled = true
-format = " 🕙 $time($style)\n"
-style = "bright-white"
-time_format = "%T"
-
-# Prompt: param 2
 [character]
-error_symbol = " [×](bold red)"
-success_symbol = " [λ](bold red)"
+error_symbol = " [✖](bold red) "
+success_symbol = " [➤](bold red)"
 
-# SYMBOLS
-[status]
-disabled = false
-format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
-map_symbol = true
-pipestatus = true
-symbol = "🔴"
-
-[aws]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
+[directory]
+truncation_length = 5
+style = "bold italic white"
+format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
-symbol = " "
+format = "[on](bold red) [$symbol$branch]($style) "
+symbol = ' '
+style = "bold yellow"
 
-[golang]
-symbol = " "
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
 
-[hg_branch]
-symbol = " "
 
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[package]
-symbol = " "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
+[hostname]
+ssh_only = false
+format = "[$hostname]($style) "
+trim_at = "-"
+style = "bold dimmed green"
+disabled =false 
 
 [python]
-symbol = " "
-
-[ruby]
-symbol = " "
+format = 'via [${symbol}${pyenv_prefix}(${version} )]($style)[(\($virtualenv\) )](bold red)'
+style = "bold green"
 
 [rust]
-symbol = " "
+format = "[$symbol$version]($style) "
+style = "bold green"
 
-[swift]
-symbol = "ﯣ "
+[username]
+format = " [$user]($style)@"
+style_user = "bold dimmed blue"
+show_always = true
+
