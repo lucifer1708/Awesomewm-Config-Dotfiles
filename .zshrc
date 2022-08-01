@@ -1,6 +1,5 @@
-
 # # # # # # #
-# ~/.bashrc #
+# ~/.zshrc  #
 # # # # # # #
 
 
@@ -15,40 +14,58 @@
 # # # # # # # # # # # # # # # # # # # #
 #       Author: Sumit Dhiman          #
 #      Email: 20bce091@nith.ac.in     #
-# # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # 
 
 
-# STARSHIP PROMPT =>
-eval "$(starship init bash)"
+#------------------------ ZSH shell configurations -------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(
+  zsh-autosuggestions
+  vi-mode
+)
+setopt HIST_SAVE_NO_DUPS
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
+#------------------------ END -----------------------------------------------
+
 
 
 [[ $- != *i* ]] && return
 EDITOR='nvim' # Variable for $EDITOR
+alias ls='ls --color=auto'
 alias installer='sudo calamares'
-PS1='[\u@\h \W]\$'
 alias autostart='sudo chmod +x .config/awesome/autostart.sh'
-# alias vim='nvim'
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias cptoken='cat ~/.token.txt | xclip -selection clipboard'
 alias clr='clear'
 alias bye='exit'
 alias fm='ranger'
 alias vim-config='cd ~/.config/nvim/'
 
-#GIT ALIASES
+#------------------ GIT ALIASES -------------
 alias g='git'
 alias ga='git add'
 alias gcommit='git commit -m'
 alias gb='git branch'
+alias gclone='git clone'
 alias gc='git checkout'
 alias gpush='git push origin'
 alias ggpush='git push -u origin'
-# Python Stuff Going Here
+ 
+#--------------------- Python Stuff Going Here ----------------------------
 alias pyrun="python manage.py runserver" # For Django
-alias activate-env='source venv/bin/activate'
-alias create-env='virtualenv venv'
+alias migrate="python manage.py migrate" # For Django
+alias makemigrations="python manage.py makemigrations" # For Django
+alias createsuperuser="python manage.py createsuperuser" # For Django
+alias collectstatic="python manage.py collectstatic" # For Django
+alias activate-env='source .venv/bin/activate'
+alias create-env='virtualenv .venv'
 
-# list
+#----------------------------- list -----------------------------------
 alias lf='ls -p | grep -v /'
 alias lfa='ls -ap | grep -v /'
 alias ld='ls -p | grep /'
@@ -59,7 +76,7 @@ alias ll='ls -la'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
-# fix obvious typo's
+#----------------------------------- fix obvious typo's -----------------------------------
 alias cd..='cd ..'
 alias pdw="pwd"
 alias udpate='sudo pacman -Syyu'
@@ -69,23 +86,24 @@ alias updqte='sudo pacman -Syyu'
 alias upqll="paru -Syu --noconfirm"
 alias upal="paru -Syu --noconfirm"
 
-# Colorize the grep command output for ease of use (good for log files) 
+#------------ Colorize the grep command output for ease of use (good for log files) ------------
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# readable output for looking on the disk usage of storage 
+#-------------------- readable output for looking on the disk usage of storage ------------------------------- 
 alias df='df -h'
 
-# pacman unlock
+#------------------- pacman unlock ---------------------
 alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
 
-# take a look at free memory
+#------------------------- take a look at free memory -------------------
 alias free="free -mt"
 
 # continue download
 alias wget="wget -c"
+
 # Will list all the users in "pswd"
 alias userlist="cut -d: -f1 /etc/passwd"
 
@@ -159,7 +177,7 @@ alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
 
 
-# youtube download
+#--------------------- youtube download -------------------------------
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
 alias yta-best="yt-dlp --extract-audio --audio-format best "
 alias yta-flac="yt-dlp --extract-audio --audio-format flac "
@@ -229,8 +247,8 @@ alias sr="sudo reboot"
 alias xd="ls /usr/share/xsessions"
 
 # ex = EXtractor for all kinds of archives
-ex ()
 # usage: ex <file>
+ex ()
 {
   if [ -f $1 ] ; then
     case $1 in
@@ -261,4 +279,5 @@ alias rmgitcache="rm -r ~/.cache/git"
 
 # USELESS ALIASES
 alias fetch='neofetch'
+
 

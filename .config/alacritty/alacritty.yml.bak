@@ -35,7 +35,7 @@ window:
     x: 0
     y: 0
 
-  opacity: 0.8
+  opacity: 0.9
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -157,7 +157,6 @@ font:
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
     family: Source Code Pro
-
     # family: CodeNewRoman Nerd Font
     # family: RobotoMono Nerd Font
     # family: Hack
@@ -566,72 +565,38 @@ schemes:
 # *SolarizedLight
 # *SolarizedDark
 # *TomorrowNight
-# colors:
-#   # Default colors
-#   primary:
-#     background: '#101012'
-#     foreground: '#EBEBEB'
-
-#   # Cursor colors
-#   cursor:
-#     text: '#000000'
-#     cursor: '#FF261E'
-
-#   # Normal colors
-#   normal:
-#     black: '#0d0d0d'
-#     red: '#FF301B'
-#     green: '#A0E521'
-#     yellow: '#FFC620'
-#     blue: '#1BA6FA'
-#     magenta: '#8763B8'
-#     cyan: '#21DEEF'
-#     white: '#EBEBEB'
-
-#   # Bright colors
-#   bright:
-#     black: '#6D7070'
-#     red: '#FF4352'
-#     green: '#B8E466'
-#     yellow: '#FFD750'
-#     blue: '#1BA6FA'
-#     magenta: '#A578EA'
-#     cyan: '#73FBF1'
-#     white: '#FEFEF8'
-
-# TokyoNight Alacritty Colors
 colors:
   # Default colors
   primary:
-    background: '#101012'
-    foreground: '0xc0caf5'
+    background: '#292C3E'
+    foreground: '#EBEBEB'
+
+  # Cursor colors
+  cursor:
+    text: '#000000'
+    cursor: '#FF261E'
 
   # Normal colors
   normal:
-    black:   '0x15161E'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xa9b1d6'
+    black: '#0d0d0d'
+    red: '#FF301B'
+    green: '#A0E521'
+    yellow: '#FFC620'
+    blue: '#1BA6FA'
+    magenta: '#8763B8'
+    cyan: '#21DEEF'
+    white: '#EBEBEB'
 
   # Bright colors
   bright:
-    black:   '0x414868'
-    red:     '0xf7768e'
-    green:   '0x9ece6a'
-    yellow:  '0xe0af68'
-    blue:    '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan:    '0x7dcfff'
-    white:   '0xc0caf5'
-
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-    
+    black: '#6D7070'
+    red: '#FF4352'
+    green: '#B8E466'
+    yellow: '#FFD750'
+    blue: '#1BA6FA'
+    magenta: '#A578EA'
+    cyan: '#73FBF1'
+    white: '#FEFEF8'
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -695,8 +660,8 @@ cursor:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-shell: null
-program: /bin/zsh
+# shell: null
+# program: /bin/zsh
 # args:
 #   - --login
 
@@ -905,4 +870,4 @@ key_bindings:
   - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
   - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
 
-theme: Nord
+theme: Dracula
