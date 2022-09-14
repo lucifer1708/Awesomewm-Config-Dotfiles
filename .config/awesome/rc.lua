@@ -120,8 +120,8 @@ local modkey1 = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser1 = "vivaldi-stable"
-local browser2 = "firefox"
+local browser1 = "brave"
+local browser2 = "brave"
 local browser3 = "chromium -no-default-browser-check"
 local editor = os.getenv("EDITOR") or "nano"
 local editorgui = "atom"
@@ -366,7 +366,7 @@ globalkeys = my_table.join(
 	awful.key({ modkey }, "F7", function()
 		awful.util.spawn("virtualbox")
 	end, { description = virtualmachine, group = "function keys" }),
-	awful.key({ modkey }, "F8", function()
+	awful.key({ modkey }, "e", function()
 		awful.util.spawn(filemanager)
 	end, { description = filemanager, group = "function keys" }),
 	awful.key({ modkey }, "F9", function()
@@ -637,12 +637,12 @@ globalkeys = my_table.join(
 		awful.screen.focus_relative(-1)
 	end, { description = "focus the previous screen", group = "screen" }),
 	awful.key({ modkey }, "u", awful.client.urgent.jumpto, { description = "jump to urgent client", group = "client" }),
-	awful.key({ modkey1 }, "Tab", function()
-		awful.client.focus.history.previous()
-		if client.focus then
-			client.focus:raise()
-		end
-	end, { description = "go back", group = "client" }),
+	-- awful.key({ modkey1 }, "Tab", function()
+	-- 	awful.client.focus.history.previous()
+	-- 	if client.focus then
+	-- 		client.focus:raise()
+	-- 	end
+	-- end, { description = "go back", group = "client" }),
 
 	-- Show/Hide Wibox
 	awful.key({ modkey }, "b", function()
