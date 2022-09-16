@@ -20,12 +20,12 @@ local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes/aqua"
 -- theme.wallpaper = wallpaper_dir .. "/eos_astronaut.png"
 
-theme.font = "Fira Code Retina 10"
+theme.font = "Source Code Pro 10"
 theme.notification_font = "Fira Code Retina 10"
 theme.notification_max_width = 400
 
-theme.taglist_font = "Fira Code Retina bold 11"
-theme.tasklist_font = "Fira Code Retina bold 10"
+theme.taglist_font = "Source Code Pro 10"
+theme.tasklist_font = "Source Code Pro 10"
 
 theme.accent = "#e3f7a1"
 theme.white = "#dcdbd7"
@@ -72,7 +72,7 @@ theme.taglist_spacing = 2
 theme.tasklist_fg_focus = theme.pink
 theme.tasklist_bg_focus = theme.bg3
 theme.bg_systray = theme.dark
-theme.menu_height = dpi(14)
+theme.menu_height = dpi(10)
 theme.menu_width = dpi(130)
 theme.menu_submenu_icon = theme.dir .. "/icons/submenu.png"
 theme.awesome_icon = theme.dir .. "/icons/awesome.png"
@@ -181,33 +181,34 @@ local cpu = lain.widget.cpu({
 theme.volume = lain.widget.alsa({
 	--togglechannel = "IEC958,3",
 	settings = function()
-		header = " "
+		header = ". "
 		vlevel = volume_now.level
 
 		if volume_now.status == "off" then
 			vlevel = vlevel .. "M"
 		else
-			vlevel = vlevel .. ""
+			vlevel = vlevel .. " "
 		end
 
-		widget:set_markup("🔊 " .. markup.font(theme.font, markup(theme.red, vlevel)))
+		widget:set_markup("🔊 " ..markup.font(theme.font, markup(theme.red, header .. vlevel)))
 	end,
 })
+
 
 -- Separators
 local first = wibox.widget.textbox('<span font="Fira Code Retina 4">  </span>')
 
 function right_tri(cr, width, height, degree)
-	cr:move_to(18, 0)
-	cr:line_to(0, 18)
-	cr:line_to(18, 18)
+	cr:move_to(10, 0)
+	cr:line_to(0, 10)
+	cr:line_to(10, 10)
 	cr:close_path()
 end
 
 function left_tri(cr, width, height, degree)
 	cr:move_to(0, 0)
-	cr:line_to(0, 18)
-	cr:line_to(18, 18)
+	cr:line_to(0, 10)
+	cr:line_to(10, 10)
 	cr:close_path()
 end
 
@@ -216,12 +217,12 @@ local function mysep(color, shape)
 		shape = shape,
 		color = color,
 		border_width = 0,
-		forced_width = 18,
+		forced_width = 10,
 		widget = wibox.widget.separator,
 	})
 end
 
-local barheight = dpi(18)
+local barheight = dpi(10)
 local barcolor = theme.dark
 
 theme.titlebar_bg = barcolor
@@ -298,7 +299,7 @@ function theme.at_screen_connect(s)
 	s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(18), bg = barcolor, border_width = 0 })
+	s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(10), bg = barcolor, border_width = 0 })
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -364,7 +365,7 @@ function theme.at_screen_connect(s)
 		position = "bottom",
 		screen = s,
 		border_width = 0,
-		height = dpi(20),
+		height = dpi(10),
 		bg = barcolor,
 	})
 

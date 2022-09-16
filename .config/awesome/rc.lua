@@ -93,7 +93,7 @@ awful.spawn.with_shell(
 -- {{{ Variable definitions
 
 local themes = {
-	"multicolor", -- 1
+	"",
 	"pastel", --2
 	"aqua", --3
 	"boxes", --4
@@ -108,7 +108,7 @@ local themes = {
 }
 
 -- choose your theme here
-local chosen_theme = themes[3]
+local chosen_theme = themes[4]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -240,36 +240,36 @@ beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv
 -- }}}
 
 -- {{{ Menu
-local myawesomemenu = {
-	{
-		"hotkeys",
-		function()
-			return false, hotkeys_popup.show_help
-		end,
-	},
-	{ "arandr", "arandr" },
-}
+-- local myawesomemenu = {
+-- 	{
+-- 		"hotkeys",
+-- 		function()
+-- 			return false, hotkeys_popup.show_help
+-- 		end,
+-- 	},
+-- 	{ "arandr", "arandr" },
+-- }
 
-awful.util.mymainmenu = freedesktop.menu.build({
-	before = {
-		{ "Awesome", myawesomemenu },
-		--{ "Atom", "atom" },
-		-- other triads can be put here
-	},
-	after = {
-		{ "Terminal", terminal },
-		{
-			"Log out",
-			function()
-				awesome.quit()
-			end,
-		},
-		{ "Sleep", "systemctl suspend" },
-		{ "Restart", "systemctl reboot" },
-		{ "Shutdown", "systemctl poweroff" },
-		-- other triads can be put here
-	},
-})
+-- awful.util.mymainmenu = freedesktop.menu.build({
+-- 	before = {
+-- 		{ "Awesome", myawesomemenu },
+-- 		--{ "Atom", "atom" },
+-- 		-- other triads can be put here
+-- 	},
+-- 	after = {
+-- 		{ "Terminal", terminal },
+-- 		{
+-- 			"Log out",
+-- 			function()
+-- 				awesome.quit()
+-- 			end,
+-- 		},
+-- 		{ "Sleep", "systemctl suspend" },
+-- 		{ "Restart", "systemctl reboot" },
+-- 		{ "Shutdown", "systemctl poweroff" },
+-- 		-- other triads can be put here
+-- 	},
+-- })
 -- hide menu when mouse leaves it
 --awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function() awful.util.mymainmenu:hide() end)
 
@@ -309,14 +309,14 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
--- {{{ Mouse bindings
-root.buttons(my_table.join(
-	awful.button({}, 3, function()
-		awful.util.mymainmenu:toggle()
-	end),
-	awful.button({}, 4, awful.tag.viewnext),
-	awful.button({}, 5, awful.tag.viewprev)
-))
+-- -- {{{ Mouse bindings
+-- root.buttons(my_table.join(
+-- 	awful.button({}, 3, function()
+-- 		awful.util.mymainmenu:toggle()
+-- 	end),
+-- 	awful.button({}, 4, awful.tag.viewnext),
+-- 	awful.button({}, 5, awful.tag.viewprev)
+-- ))
 -- }}}
 
 -- {{{ Key bindings
