@@ -25,5 +25,5 @@ alacritty
 etc,`
 
 ## Previews:
-[![](https://imgur.com/eTz9duJ.png)](https://imgur.com/eTz9duJ.png)
-[![](https://imgur.com/jYBq2PW.png)](https://imgur.com/jYBq2PW.png)
+[![](https://0x0.st/owgH.jpg)](https://0x0.st/owgH.jpg)
+[![](https://0x0.st/owgH.jpg)](https://0x0.st/owgH.jpg)
